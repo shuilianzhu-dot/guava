@@ -72,7 +72,7 @@ import org.checkerframework.checker.nullness.compatqual.NullableDecl;
  * @since 5.0
  */
 @Beta
-@GwtCompatible
+@GwtCompatible(emulated = true)
 @Immutable
 public final class InternetDomainName {
 
@@ -199,7 +199,6 @@ public final class InternetDomainName {
    *   <li>Parts other than the final part may start with a digit, as mandated by <a
    *       href="https://tools.ietf.org/html/rfc1123#section-2">RFC 1123</a>.
    * </ul>
-   *
    *
    * @param domain A domain name (not IP address)
    * @throws IllegalArgumentException if {@code domain} is not syntactically valid according to

@@ -33,7 +33,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-/** Tests for {@link ConfigurableMutableValueGraph} and related functionality. */
+/** Tests for {@link StandardMutableValueGraph} and related functionality. */
 // TODO(user): Expand coverage and move to proper test suite.
 @RunWith(JUnit4.class)
 public final class ValueGraphTest {
@@ -379,6 +379,7 @@ public final class ValueGraphTest {
             EndpointPair.unordered(2, 4))
         .inOrder();
   }
+
 
   @Test
   public void concurrentIteration() throws Exception {

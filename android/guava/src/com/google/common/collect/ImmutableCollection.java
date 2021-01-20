@@ -198,6 +198,7 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
   }
 
   /** If this collection is backed by an array of its elements in insertion order, returns it. */
+  @NullableDecl
   Object[] internalArray() {
     return null;
   }
@@ -479,11 +480,15 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
     @CanIgnoreReturnValue
     @Override
     public Builder<E> add(E... elements) {
-      checkElementsNotNull(elements);
-      getReadyToExpandTo(size + elements.length);
-      System.arraycopy(elements, 0, contents, size, elements.length);
-      size += elements.length;
+      addAll(elements, elements.length);
       return this;
+    }
+
+    final void addAll(Object[] elements, int n) {
+      checkElementsNotNull(elements, n);
+      getReadyToExpandTo(size + n);
+      System.arraycopy(elements, 0, contents, size, n);
+      size += n;
     }
 
     @CanIgnoreReturnValue

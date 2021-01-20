@@ -14,6 +14,7 @@
 
 package com.google.common.io;
 
+
 import com.google.common.annotations.Beta;
 import com.google.common.annotations.GwtIncompatible;
 import com.google.common.annotations.VisibleForTesting;
@@ -63,8 +64,7 @@ public final class FileBackedOutputStream extends OutputStream {
   private MemoryOutput memory;
 
   @GuardedBy("this")
-  @Nullable
-  private File file;
+  private @Nullable File file;
 
   /** ByteArrayOutputStream that exposes its internals. */
   private static class MemoryOutput extends ByteArrayOutputStream {
